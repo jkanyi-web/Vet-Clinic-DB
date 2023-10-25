@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS public.animals
     escape_attempts integer NOT NULL,
     neutered boolean NOT NULL,
     weight_kg numeric,
+    species character varying COLLATE pg_catalog."default",
     CONSTRAINT animals_pkey PRIMARY KEY (id)
 )
 
