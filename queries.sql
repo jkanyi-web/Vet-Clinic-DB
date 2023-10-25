@@ -25,6 +25,9 @@ SELECT * FROM animals
 WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
 
 UPDATE animals
+SET species = 'unspecified'
+
+UPDATE animals
 SET species = 'digimon'
 WHERE name LIKE '%mon';
 
@@ -35,6 +38,8 @@ WHERE species IS NULL;
 SELECT name, species FROM animals;
 
 COMMIT;
+
+SELECT name, species FROM animals;
 
 BEGIN;
 
