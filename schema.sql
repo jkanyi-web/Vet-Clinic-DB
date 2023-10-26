@@ -53,3 +53,63 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.species
     OWNER to postgres;
+
+-- DAY 4
+
+-- vets table
+CREATE TABLE IF NOT EXISTS public.vets
+(
+    id integer NOT NULL DEFAULT nextval('vets_id_seq'::regclass),
+    name character varying(100) COLLATE pg_catalog."default",
+    age integer,
+    date_of_graduation date,
+    CONSTRAINT vets_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.vets
+    OWNER to postgres;
+
+-- visits table
+CREATE TABLE IF NOT EXISTS public.visits
+(
+    vet_id integer NOT NULL,
+    animal_id integer NOT NULL,
+    visit_date date NOT NULL,
+    CONSTRAINT visits_pkey PRIMARY KEY (vet_id, animal_id, visit_date),
+    CONSTRAINT visits_animal_id_fkey FOREIGN KEY (animal_id)
+        REFERENCES public.animals (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT visits_vet_id_fkey FOREIGN KEY (vet_id)
+        REFERENCES public.vets (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.visits
+    OWNER to postgres;
+
+-- specializations table
+CREATE TABLE IF NOT EXISTS public.specializations
+(
+    vet_id integer NOT NULL,
+    species_id integer NOT NULL,
+    CONSTRAINT specializations_pkey PRIMARY KEY (vet_id, species_id),
+    CONSTRAINT specializations_species_id_fkey FOREIGN KEY (species_id)
+        REFERENCES public.species (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT specializations_vet_id_fkey FOREIGN KEY (vet_id)
+        REFERENCES public.vets (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.specializations
+    OWNER to postgres;
