@@ -110,3 +110,8 @@ CREATE INDEX vet_id_index ON visits (vet_id);
 ANALYZE visits;
 
 CREATE INDEX owner_id_index ON owners (email);
+
+-- review request
+DROP INDEX animal_id_index
+
+CREATE INDEX animal_id_index ON visits (animal_id);
