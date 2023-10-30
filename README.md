@@ -127,6 +127,11 @@ Execute the commands in the files respectively beginning with schema.sql, then d
 - Twitter: [@V_Kanyi](https://twitter.com/V_Kanyi)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/victor-kanyi)
 
+👤 **Bhushan Deshmukhi**
+
+- GitHub: [@bhushan354](https://github.com/bhushan354)
+- LinkedIn: [Bhushan Deshmukh](https://www.linkedin.com/in/bhushan-deshmukh-5777851b1/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
