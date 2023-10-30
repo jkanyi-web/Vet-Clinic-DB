@@ -104,3 +104,4 @@ SELECT
   'Owner ' || generate_series(1,2500000), 
   'owner_' || generate_series(1,2500000) || '@mail.com';
 
+CREATE INDEX animal_id_index ON visits (animal_id);
